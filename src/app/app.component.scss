@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+mat-tab-body {
+  height: 200px;
+}
+
+section {
+  margin: 5em 0;
+}
