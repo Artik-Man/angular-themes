@@ -97,10 +97,16 @@ $warn-map: (
     A700: $light-primary-text,
   )
 );
-.theme-2 {
+.theme-3-dark {
   // This will add 3KB CSS
   @include create-color($primary-map, 'primary');
   @include create-color($accent-map, 'accent');
   @include create-color($warn-map, 'warn');
+
+  background: #455;
+
+  h2, h3 {
+    color: white
+  }
 }
 

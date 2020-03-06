@@ -35,6 +35,11 @@
               },
               {
                 "inject": false,
+                "input": "src/themes/material-dark.scss",
+                "bundleName": "material-dark"
+              },
+              {
+                "inject": false,
                 "input": "src/themes/theme-1.scss",
                 "bundleName": "theme-1"
               },
@@ -45,13 +50,13 @@
               },
               {
                 "inject": false,
-                "input": "src/themes/theme-3.scss",
-                "bundleName": "theme-3"
+                "input": "src/themes/theme-3-dark.scss",
+                "bundleName": "theme-3-dark"
               },
               {
                 "inject": false,
-                "input": "src/themes/theme-4.scss",
-                "bundleName": "theme-4"
+                "input": "src/themes/theme-4-dark.scss",
+                "bundleName": "theme-4-dark"
               }
             ],
             "scripts": []

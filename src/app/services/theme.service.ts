@@ -4,7 +4,8 @@ const KEY = 'theme';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  private linkElement: HTMLLinkElement;
+  private linkElement = ThemeService.createLinkElement();
+  private linkElementIsDark = ThemeService.createLinkElement();
 
   constructor() {
     this.getTheme();
@@ -40,11 +41,18 @@ export class ThemeService {
   }
 
   private getCSS(name: string) {
-    if (!this.linkElement) {
-      this.linkElement = document.createElement('link');
-      this.linkElement.rel = 'stylesheet';
-      document.head.appendChild(this.linkElement);
-    }
     this.linkElement.href = name + '.css';
+    if (name.includes('dark')) {
+      this.linkElementIsDark.href = 'material-dark.css';
+    } else {
+      this.linkElementIsDark.href = '';
+    }
+  }
+
+  private static createLinkElement(): HTMLLinkElement {
+    const element = document.createElement('link');
+    element.rel = 'stylesheet';
+    document.head.appendChild(element);
+    return element;
   }
 }
