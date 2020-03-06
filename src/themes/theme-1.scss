@@ -1,0 +1,7 @@
+@import '~@angular/material/theming';
+
+.theme-1 {
+  // This will add 60KB CSS
+  @include angular-material-theme(mat-light-theme(mat-palette($mat-orange), mat-palette($mat-brown), mat-palette($mat-red)));
+}
+
