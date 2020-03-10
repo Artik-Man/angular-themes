@@ -40,22 +40,27 @@
               },
               {
                 "inject": false,
-                "input": "src/themes/theme-1.scss",
+                "input": "src/themes/material-light.scss",
+                "bundleName": "material-light"
+              },
+              {
+                "inject": false,
+                "input": "src/themes/themes/theme-1.scss",
                 "bundleName": "theme-1"
               },
               {
                 "inject": false,
-                "input": "src/themes/theme-2.scss",
+                "input": "src/themes/themes/theme-2.scss",
                 "bundleName": "theme-2"
               },
               {
                 "inject": false,
-                "input": "src/themes/theme-3-dark.scss",
+                "input": "src/themes/themes/theme-3-dark.scss",
                 "bundleName": "theme-3-dark"
               },
               {
                 "inject": false,
-                "input": "src/themes/theme-4-dark.scss",
+                "input": "src/themes/themes/theme-4-dark.scss",
                 "bundleName": "theme-4-dark"
               }
             ],

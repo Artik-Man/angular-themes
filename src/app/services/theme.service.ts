@@ -1,20 +1,28 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 const KEY = 'theme';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class ThemeService {
-  private linkElement = ThemeService.createLinkElement();
-  private linkElementIsDark = ThemeService.createLinkElement();
 
   constructor() {
     this.getTheme();
+    document.head.appendChild(this.linkElementThemeType);
+  }
+
+  private linkElementTheme = ThemeService.createLinkElement();
+  private linkElementThemeType = ThemeService.createLinkElement();
+
+  private static createLinkElement(): HTMLLinkElement {
+    const element = document.createElement('link');
+    element.rel = 'stylesheet';
+    return element;
   }
 
   public getTheme(): string {
     const theme = localStorage.getItem(KEY);
+    this.getCSS(theme);
     if (theme) {
-      this.getCSS(theme);
       document.body.classList.add(theme);
     }
     return theme;
@@ -28,31 +36,29 @@ export class ThemeService {
       }
     });
     document.body.classList.remove(...classes);
+    this.getCSS(name);
+
     if (name) {
       document.body.classList.add(name);
       localStorage.setItem(KEY, name);
-      this.getCSS(name);
     } else {
       localStorage.removeItem(KEY);
-      if (this.linkElement) {
-        this.linkElement.href = '';
-      }
     }
   }
 
   private getCSS(name: string) {
-    this.linkElement.href = name + '.css';
-    if (name.includes('dark')) {
-      this.linkElementIsDark.href = 'material-dark.css';
+    if (name) {
+      this.linkElementTheme.href = name + '.css';
+      document.head.appendChild(this.linkElementTheme);
     } else {
-      this.linkElementIsDark.href = '';
+      if (this.linkElementTheme.parentNode) {
+        document.head.removeChild(this.linkElementTheme);
+      }
     }
-  }
-
-  private static createLinkElement(): HTMLLinkElement {
-    const element = document.createElement('link');
-    element.rel = 'stylesheet';
-    document.head.appendChild(element);
-    return element;
+    if (name && name.includes('dark')) {
+      this.linkElementThemeType.href = 'material-dark.css';
+    } else {
+      this.linkElementThemeType.href = 'material-light.css';
+    }
   }
 }

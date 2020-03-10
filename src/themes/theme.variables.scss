@@ -1,4 +1,4 @@
-@import "theme-creator";
+@import "~material-theme-creator/core";
 
 $primary-map-vars: create-theme-map('primary');
 $accent-map-vars: create-theme-map('accent');

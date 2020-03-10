@@ -1,0 +1,4 @@
+@import '~@angular/material/theming';
+@import "theme.variables";
+
+@include angular-material-theme(mat-light-theme(mat-palette($primary-map-vars), mat-palette($accent-map-vars), mat-palette($warn-map-vars)));

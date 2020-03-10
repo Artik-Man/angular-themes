@@ -1,5 +1,5 @@
 @import '~@angular/material/theming';
-@import "theme-creator";
+@import "~material-theme-creator/core";
 
 $primary-map: (
   50: #fff3e0,
@@ -99,8 +99,8 @@ $warn-map: (
 );
 .theme-1 {
   // This will add 3KB CSS
-  @include create-color($primary-map, 'primary');
-  @include create-color($accent-map, 'accent');
-  @include create-color($warn-map, 'warn');
+  @include create-variables-from-map('primary', $primary-map);
+  @include create-variables-from-map('accent', $accent-map);
+  @include create-variables-from-map('warn', $warn-map);
 }
 
