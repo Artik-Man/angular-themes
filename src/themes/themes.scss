@@ -3,10 +3,6 @@
 
 @include mat-core();
 
-$primary-map-vars: create-theme-map('primary');
-$accent-map-vars: create-theme-map('accent');
-$warn-map-vars: create-theme-map('warn');
-
 :root {
   $primary-map: (
     50: #eceff1,
